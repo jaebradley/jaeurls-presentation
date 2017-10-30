@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { updateUriValidity } from '../actions';
+import { fetchJaeUrl, updateUriValidity } from '../actions';
 import UriForm from '../components/UriForm'
 
 const mapStateToProps = (state) => {
@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch) => {
     onUriChange: (uri) => {
       dispatch(updateUriValidity(uri));
     },
+    onSubmit: (uri) => {
+      dispatch(fetchJaeUrl(uri));
+    }
   };
 }
 

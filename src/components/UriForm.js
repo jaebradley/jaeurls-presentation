@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Text } from 'react-form';
-const ValidUrl = require('valid-url');
 
 class UriForm extends React.Component {
   constructor(props) {
@@ -12,10 +11,10 @@ class UriForm extends React.Component {
     };
   }
 
-  errorValidator(values) {
-    return {
-      uri: !values.uri || !ValidUrl.isUri(values.uri) ? 'URI is a required field' : null
-    }
+  componentWillReceiveProps(props) {
+    this.setState({
+      isValidUri: props.isValidUri,
+    });
   }
 
   onUriChange(event) {
@@ -29,16 +28,16 @@ class UriForm extends React.Component {
   onSubmit(event) {
     event.preventDefault();
 
-    console.log(event.target);
+    if (this.state.isValidUri) {
+      const uri = event.target.children[1].value;
+      this.props.onSubmit(uri);
+    }
   }
 
   render() {
     return (
       <div>
-        <Form
-          validateError={this.errorValidator.bind(this)}
-          asyncValidators={this.uriValidation}
-        >
+        <Form>
           { formApi => (
             <form onSubmit={this.onSubmit.bind(this)}>
               <label>URI</label>
