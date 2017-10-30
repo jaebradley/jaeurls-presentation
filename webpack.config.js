@@ -22,7 +22,7 @@ const config = {
   devServer: {
     contentBase: 'public',
     inline: true,
-    port: 8080,
+    port: 9090,
     hot: true,
     historyApiFallback: true
   },
@@ -37,6 +37,10 @@ const config = {
       {
         test: /\.html$/,
         loader: 'file?name=[name].[ext]',
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
       }
     ]
   },

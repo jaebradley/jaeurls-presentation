@@ -1,7 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Root from './containers/Root'
-import { AppContainer } from 'react-hot-loader'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+import 'bootstrap/dist/css/bootstrap.css';
+
+import Root from './containers/Root';
 
 const render = Component => {
   ReactDOM.render(
