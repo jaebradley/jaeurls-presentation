@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Form, Text } from 'react-form';
 const ValidUrl = require('valid-url');
 
-class UrlForm extends React.Component {
+class UriForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state({
-      invalidUri: props.invalidUri
-    });
+    this.state = {
+      isValidUri: props.isValidUri,
+    };
   }
 
   errorValidator(values) {
@@ -19,7 +19,11 @@ class UrlForm extends React.Component {
   }
 
   onUriChange(event) {
-    console.log(event.target)''
+    const {
+      onUriChange,
+    } = this.props;
+
+    onUriChange(event.target.value);
   }
 
   onSubmit(event) {
@@ -38,7 +42,11 @@ class UrlForm extends React.Component {
           { formApi => (
             <form onSubmit={this.onSubmit.bind(this)}>
               <label>URI</label>
-              <Text field={'uri'} id={'uri'} onChange={this.onUriChange.bind(this)}/>
+              <Text
+                field={'uri'}
+                id={'uri'}
+                onChange={this.onUriChange.bind(this)}
+              />
             </form>
           )}
         </Form>
@@ -47,4 +55,4 @@ class UrlForm extends React.Component {
   }
 };
 
-export default UrlForm;
+export default UriForm;

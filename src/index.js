@@ -1,20 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App'
+import Root from './containers/Root'
 import { AppContainer } from 'react-hot-loader'
 
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
-      <Component />
+      <Root />
     </AppContainer>,
-    document.getElementById('app'),
+    document.getElementById('root'),
   )
 }
 
-render(App)
+render(Root)
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./components/App', () => { render(App) })
+  module.hot.accept('./containers/Root', () => { render(Root) })
 }

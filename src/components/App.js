@@ -1,12 +1,12 @@
 import React from 'react';
 
-import UrlForm from './UrlForm';
+import CurrentUriForm from '../containers/CurrentUriForm';
 
 class App extends React.Component {
    render() {
       return (
          <div>
-            <UrlForm />
+            <CurrentUriForm />
          </div>
       );
    }
