@@ -1,44 +1,43 @@
-const ValidUrl = require('valid-url');
-
 import {
   UPDATE_INPUT_URL_VALUE,
   UPDATE_JAE_URL,
   UPDATE_URI_VALIDITY,
-  FETCH_JAE_URL,
+  FETCH_JAE_URL_FAILURE,
   FETCH_JAE_URL_SUCCESS,
-  FETCH_JAE_URL_FAILURE
 } from '../constants/ActionType';
 
-export const updateJaeUrl = (data) => {
-  return {
+const ValidUrl = require('valid-url');
+
+export const updateJaeUrl = data => (
+  {
     type: UPDATE_JAE_URL,
     jaeUrl: data.Url,
-  };
-};
+  }
+);
 
-export const updateInputUrlValue = (url) => {
-  return {
+export const updateInputUrlValue = url => (
+  {
     type: UPDATE_INPUT_URL_VALUE,
     inputUrlValue: url,
-  };
-}
+  }
+);
 
-export const updateUriValidity = (uri) => {
-  return {
+export const updateUriValidity = uri => (
+  {
     type: UPDATE_URI_VALIDITY,
     isValidUri: !!ValidUrl.isUri(uri),
-  };
-};
+  }
+);
 
-export const fetchJaeUrl = (url) => {
-  return (dispatch) => {
-    return fetch('https://jaeurls.herokuapp.com/api/v1/', {
+export const fetchJaeUrl = url => (
+  dispatch => (
+    fetch('https://jaeurls.herokuapp.com/api/v1/', {
       method: 'POST',
       body: JSON.stringify({ url }),
     }).then(response => response.json())
-      .then(data => {
+      .then((data) => {
         dispatch(updateJaeUrl(data));
         dispatch({ type: FETCH_JAE_URL_SUCCESS });
-      }).catch(error => dispatch({ type: FETCH_JAE_URL_FAILURE }));
-  };
-};
+      }).catch(error => dispatch({ type: FETCH_JAE_URL_FAILURE }))
+  )
+);
