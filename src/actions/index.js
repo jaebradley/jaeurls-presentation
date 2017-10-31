@@ -1,6 +1,7 @@
 const ValidUrl = require('valid-url');
 
 import {
+  UPDATE_INPUT_URL_VALUE,
   UPDATE_JAE_URL,
   UPDATE_URI_VALIDITY,
   FETCH_JAE_URL,
@@ -14,6 +15,13 @@ export const updateJaeUrl = (data) => {
     jaeUrl: data.Url,
   };
 };
+
+export const updateInputUrlValue = (url) => {
+  return {
+    type: UPDATE_INPUT_URL_VALUE,
+    inputUrlValue: url,
+  };
+}
 
 export const updateUriValidity = (uri) => {
   return {

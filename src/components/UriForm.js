@@ -14,6 +14,7 @@ import {
   Col,
   Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink
  } from 'reactstrap';
+ import AlertContainer from 'react-alert';
 
 class UriForm extends React.Component {
   constructor(props) {
@@ -21,12 +22,14 @@ class UriForm extends React.Component {
 
     this.state = {
       isValidUri: props.isValidUri,
+      inputUrlValue: props.inputUrlValue,
     };
   }
 
   componentWillReceiveProps(props) {
     this.setState({
       isValidUri: props.isValidUri,
+      inputUrlValue: props.inputUrlValue,
     });
   }
 
@@ -46,58 +49,43 @@ class UriForm extends React.Component {
     event.preventDefault();
 
     if (this.state.isValidUri) {
-      const uri = event.target.children[0].children[1].value;
-      this.props.onSubmit(uri);
+      this.props.onSubmit(this.state.inputUrlValue);
+    } else {
+      this.showAlert();
     }
   }
 
+  showAlert() {
+    this.msg.show('Submit a valid URI', {
+      time: 2000,
+      type: 'error',
+    });
+  }
+
   render() {
+      const alertOptions = {
+      offset: 14,
+      position: 'top left',
+      theme: 'dark',
+      time: 5000,
+      transition: 'scale'
+    };
     return (
-      <div>
-        <Navbar color="faded" light expand="md">
-          <NavbarBrand href="/">Jae URLs</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
-              </NavItem>
-            </Nav>
-          </Navbar>
-        <Container>
-          <Row>
-            <h2>Create A Jae URL</h2>
-          </Row>
-          <Row>
-            <Col>
-              <Form onSubmit={this.onSubmit.bind(this)}>
-                <FormGroup>
-                  <Container>
-                    <Row>
-                      <Col xs={3}>
-                        <h1><Label for={'uri'}><Badge color={"secondary"}>Input A URL</Badge></Label></h1>
-                      </Col>
-                      <Col>
-                        <Alert color={this.getAlertColor()}>
-                          <Input
-                            type={'text'}
-                            name={'uri'}
-                            id={'uri'}
-                            rows={1}
-                            onChange={this.onUriChange.bind(this)}
-                          />
-                        </Alert>
-                      </Col>
-                    </Row>
-                  </Container>
-                </FormGroup>
-              </Form>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      <Form onSubmit={this.onSubmit.bind(this)}>
+        <FormGroup>
+          <Alert color={this.getAlertColor()}>
+            <Input
+              placeholder={"Input a URL and get a shortened URL (...kind've)"}
+              type={'text'}
+              name={'uri'}
+              id={'uri'}
+              rows={1}
+              onChange={this.onUriChange.bind(this)}
+            />
+          </Alert>
+          <AlertContainer ref={a => this.msg = a} {...alertOptions} />
+        </FormGroup>
+      </Form>
     )
   }
 };
