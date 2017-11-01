@@ -1,18 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Badge,
-  Button,
+  Alert,
   Form,
   FormGroup,
-  Label,
   Input,
-  FormText,
-  Alert,
-  Container,
-  Row,
-  Col,
-  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink
  } from 'reactstrap';
  import AlertContainer from 'react-alert';
 
@@ -88,6 +80,6 @@ class UriForm extends React.Component {
       </Form>
     )
   }
-};
+}
 
 export default UriForm;

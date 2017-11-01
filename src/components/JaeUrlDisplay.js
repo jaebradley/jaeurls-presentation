@@ -4,7 +4,6 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {
   Alert,
   Button,
-  Container,
   Row,
   Col
 } from 'reactstrap';
@@ -46,7 +45,7 @@ class JaeUrlDisplay extends React.Component {
   }
 
   render() {
-    if (!!this.state.jaeUrl) {
+    if (!this.state.jaeUrl) {
       const alertOptions = {
       offset: 14,
       position: 'top left',
@@ -77,6 +76,6 @@ class JaeUrlDisplay extends React.Component {
 
     return null;
   }
-};
+}
 
 export default JaeUrlDisplay;

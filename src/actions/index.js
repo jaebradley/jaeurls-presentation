@@ -38,6 +38,6 @@ export const fetchJaeUrl = url => (
       .then((data) => {
         dispatch(updateJaeUrl(data));
         dispatch({ type: FETCH_JAE_URL_SUCCESS });
-      }).catch(error => dispatch({ type: FETCH_JAE_URL_FAILURE }))
+      }).catch(() => dispatch({ type: FETCH_JAE_URL_FAILURE }))
   )
 );

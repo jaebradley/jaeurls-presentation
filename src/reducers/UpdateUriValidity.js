@@ -8,7 +8,7 @@ const UpdateUriValidity = (state = { isValidUri: false }, action) => {
       };
     default:
       return state;
-  };
+  }
 };
 
 export default UpdateUriValidity;

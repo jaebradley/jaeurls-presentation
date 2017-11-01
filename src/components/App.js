@@ -1,17 +1,12 @@
 import React from 'react';
 import {
-  Badge,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  Alert,
   Container,
   Row,
   Col,
-  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink
+  Navbar,
+  Nav,
+  NavItem,
+  NavLink
  } from 'reactstrap';
 
 import CurrentUriForm from '../containers/CurrentUriForm';

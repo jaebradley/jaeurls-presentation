@@ -2,7 +2,7 @@ import React from 'react';
 import AlertContainer from 'react-alert';
 
 class Notification extends React.Component {
-  showAlert = () => {
+  showAlert() {
     this.msg.show(this.props.message, {
       time: 2000,
       type: 'success',
