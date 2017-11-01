@@ -1,14 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Root from './containers/Root'
-import { AppContainer } from 'react-hot-loader'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+import 'bootstrap/dist/css/bootstrap.css';
 
-const render = Component => {
+import Root from './containers/Root';
+
+const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Root />
     </AppContainer>,
-    document.getElementById('root'),
+    document.getElementById('root')
   )
 }
 

@@ -11,7 +11,7 @@ const UpdateErrors = (state = {}, action) => {
       return { fetchJaeUrlFailure: false };
     default:
       return state;
-  };
+  }
 };
 
 export default UpdateErrors;
