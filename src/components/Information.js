@@ -28,7 +28,7 @@ class Information extends React.Component {
         <Collapse isOpen={this.state.isOpen}>
           <Card>
             <CardBody className={'information-text'}>
-              I built <a href={"https://github.com/jaebradley/jaeurls"}>a URL shortener</a> from scratch (nerd alert)...but each URL has &#39;jae&#39; prepended to the last path (narcissist alert) like <a href={"https://jaeurls.herokuapp.com/jae1"}>https://jaeurls.herokuapp.com/jae1</a>. And if you can read this, congratulations - it&#39;s small as shit.
+              I built <a href={"https://github.com/jaebradley/jaeurls"}>a URL shortener</a> from scratch (nerd alert)...but each URL has &#39;jae&#39; prepended to the last path (narcissist alert) like <a href={"https://jaeurls.herokuapp.com/jaep"}>https://jaeurls.herokuapp.com/jaep</a>. And if you can read this, congratulations - it&#39;s small as shit.
             </CardBody>
           </Card>
         </Collapse>
