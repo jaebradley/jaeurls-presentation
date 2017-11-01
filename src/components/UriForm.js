@@ -51,7 +51,7 @@ class UriForm extends React.Component {
   }
 
   render() {
-      const alertOptions = {
+    const alertOptions = {
       offset: 14,
       position: 'top left',
       theme: 'dark',
