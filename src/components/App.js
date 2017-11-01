@@ -11,6 +11,7 @@ import {
 
 import CurrentUrlForm from '../containers/CurrentUrlForm';
 import CurrentJaeUrlDisplay from '../containers/CurrentJaeUrlDisplay';
+import CurrentLoadingModal from '../containers/CurrentLoadingModal';
 
 class App extends React.Component {
    render() {
@@ -39,6 +40,7 @@ class App extends React.Component {
               </Col>
             </Row>
           </Container>
+          <CurrentLoadingModal />
         </div>
       );
    }
