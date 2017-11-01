@@ -25,7 +25,7 @@ export const updateInputUrlValue = url => (
 export const updateUrlValidity = url => (
   {
     type: UPDATE_URL_VALIDITY,
-    isValidUrl: !!ValidUrl.isUrl(url),
+    isValidUrl: !!ValidUrl.isWebUri(url),
   }
 );
 

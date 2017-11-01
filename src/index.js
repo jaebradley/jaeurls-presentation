@@ -5,12 +5,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import Root from './containers/Root';
 
-const render = Component => {
+const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Root />
     </AppContainer>,
-    document.getElementById('root'),
+    document.getElementById('root')
   )
 }
 

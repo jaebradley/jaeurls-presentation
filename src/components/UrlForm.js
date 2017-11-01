@@ -79,10 +79,10 @@ class UrlForm extends React.Component {
 }
 
 UrlForm.propTypes = {
-  isValidUrl: PropTypes.boolean.isRequired,
+  isValidUrl: PropTypes.bool.isRequired,
   inputUrlValue: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  onUrlChange: PropTypes.func.isRequired
+  onUrlChange: PropTypes.func.isRequired,
 }
 
 export default UrlForm;

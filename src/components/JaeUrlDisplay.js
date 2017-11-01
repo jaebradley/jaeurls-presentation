@@ -40,7 +40,7 @@ class JaeUrlDisplay extends React.Component {
   }
 
   render() {
-    if (!this.state.jaeUrl) {
+    if (this.state.jaeUrl.length > 0) {
       return (
           <div>
             <h5>Created Jae URL</h5>
