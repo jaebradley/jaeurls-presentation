@@ -5,6 +5,7 @@ import JaeUrlDisplay from '../components/JaeUrlDisplay';
 const mapStateToProps = (state) => {
   return {
     jaeUrl: state.UpdateJaeUrl.jaeUrl,
+    isFetching: state.UpdateFetchStatus.fetchingJaeUrl,
   };
 }
 

@@ -20,7 +20,16 @@ class JaeUrlDisplay extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setState({ jaeUrl: props.jaeUrl });
+    const {
+      jaeUrl,
+      isFetching
+    } = props;
+
+    this.setState({ jaeUrl });
+
+    if (isFetching) {
+      this.setState({ copied: false });
+    }
   }
 
   getButtonText() {
@@ -77,7 +86,8 @@ class JaeUrlDisplay extends React.Component {
 }
 
 JaeUrlDisplay.propTypes = {
-  jaeUrl: PropTypes.string.isRequired
+  jaeUrl: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
 export default JaeUrlDisplay;
