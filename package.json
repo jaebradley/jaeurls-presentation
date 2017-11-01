@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "gh-pages-deploy": "gh-pages-deploy"
+    "gh-pages-deploy": "gh-pages-deploy",
+    "build": "node ./node_modules/webpack/bin/webpack.js"
   },
   "repository": {
     "type": "git",
