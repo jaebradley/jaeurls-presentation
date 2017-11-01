@@ -9,7 +9,7 @@ import {
   Row
  } from 'reactstrap';
 
-import CurrentUriForm from '../containers/CurrentUriForm';
+import CurrentUrlForm from '../containers/CurrentUrlForm';
 import CurrentJaeUrlDisplay from '../containers/CurrentJaeUrlDisplay';
 
 class App extends React.Component {
@@ -30,7 +30,7 @@ class App extends React.Component {
             <h5>Input URL</h5>
             <Row>
               <Col>
-                <CurrentUriForm />
+                <CurrentUrlForm />
               </Col>
             </Row>
             <Row>

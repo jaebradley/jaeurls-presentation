@@ -8,35 +8,35 @@ import {
  } from 'reactstrap';
  import AlertContainer from 'react-alert';
 
-class UriForm extends React.Component {
+class UrlForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isValidUri: props.isValidUri,
+      isValidUrl: props.isValidUrl,
       inputUrlValue: props.inputUrlValue,
     };
   }
 
   componentWillReceiveProps(props) {
     this.setState({
-      isValidUri: props.isValidUri,
+      isValidUrl: props.isValidUrl,
       inputUrlValue: props.inputUrlValue,
     });
   }
 
-  onUriChange(event) {
-    this.props.onUriChange(event.target.value);
+  onUrlChange(event) {
+    this.props.onUrlChange(event.target.value);
   }
 
   getAlertColor() {
-    return this.state.isValidUri ? 'success' : 'danger';
+    return this.state.isValidUrl ? 'success' : 'danger';
   }
 
   onSubmit(event) {
     event.preventDefault();
 
-    if (this.state.isValidUri) {
+    if (this.state.isValidUrl) {
       this.props.onSubmit(this.state.inputUrlValue);
     } else {
       this.showAlert();
@@ -44,7 +44,7 @@ class UriForm extends React.Component {
   }
 
   showAlert() {
-    this.msg.show('Submit a valid URI', {
+    this.msg.show('Submit a valid URL', {
       time: 2000,
       type: 'error',
     });
@@ -65,10 +65,10 @@ class UriForm extends React.Component {
             <Input
               placeholder={"Input a URL and get a shortened URL (...kind've)"}
               type={'text'}
-              name={'uri'}
-              id={'uri'}
+              name={'url'}
+              id={'url'}
               rows={1}
-              onChange={this.onUriChange.bind(this)}
+              onChange={this.onUrlChange.bind(this)}
             />
           </Alert>
           <AlertContainer ref={a => this.msg = a} {...alertOptions} />
@@ -78,11 +78,11 @@ class UriForm extends React.Component {
   }
 }
 
-UriForm.propTypes = {
-  isValidUri: PropTypes.boolean.isRequired,
+UrlForm.propTypes = {
+  isValidUrl: PropTypes.boolean.isRequired,
   inputUrlValue: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  onUriChange: PropTypes.func.isRequired
+  onUrlChange: PropTypes.func.isRequired
 }
 
-export default UriForm;
+export default UrlForm;

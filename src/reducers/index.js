@@ -3,13 +3,13 @@ import { combineReducers } from 'redux';
 import UpdateErrors from './UpdateErrors';
 import UpdateInputUrlValue from './UpdateInputUrlValue';
 import UpdateJaeUrl from './UpdateJaeUrl';
-import UpdateUriValidity from './UpdateUriValidity';
+import UpdateUrlValidity from './UpdateUrlValidity';
 
-const JaeUrisCreator = combineReducers({
+const JaeUrlsCreator = combineReducers({
   UpdateErrors,
   UpdateInputUrlValue,
   UpdateJaeUrl,
-  UpdateUriValidity
+  UpdateUrlValidity
 });
 
-export default JaeUrisCreator;
+export default JaeUrlsCreator;

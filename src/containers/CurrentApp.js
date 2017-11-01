@@ -3,7 +3,7 @@ import App from '../components/App';
 
 const mapStateToProps = (state) => {
   return {
-    isUriValid: state.UpdateUriValidity.isUriValid,
+    isUrlValid: state.UpdateUrlValidity.isUrlValid,
   };
 };
 

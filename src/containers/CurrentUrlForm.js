@@ -1,19 +1,19 @@
 import { connect } from 'react-redux'
 
-import { fetchJaeUrl, updateUriValidity, updateInputUrlValue } from '../actions';
-import UriForm from '../components/UriForm'
+import { fetchJaeUrl, updateUrlValidity, updateInputUrlValue } from '../actions'
+import UrlForm from '../components/UrlForm'
 
 const mapStateToProps = (state) => {
   return {
-    isValidUri: state.UpdateUriValidity.isValidUri,
+    isValidUrl: state.UpdateUrlValidity.isValidUrl,
     inputUrlValue: state.UpdateInputUrlValue.inputUrlValue,
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onUriChange: (url) => {
-      dispatch(updateUriValidity(url));
+    onUrlChange: (url) => {
+      dispatch(updateUrlValidity(url));
       dispatch(updateInputUrlValue(url));
     },
     onSubmit: (url) => {
@@ -22,9 +22,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-const CurrentUriForm = connect(
+const CurrentUrlForm = connect(
   mapStateToProps,
   mapDispatchToProps
-)(UriForm);
+)(UrlForm);
 
-export default CurrentUriForm;
+export default CurrentUrlForm;

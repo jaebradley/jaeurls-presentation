@@ -1,14 +1,14 @@
-import { UPDATE_URI_VALIDITY } from '../constants/ActionType';
+import { UPDATE_URL_VALIDITY } from '../constants/ActionType';
 
-const UpdateUriValidity = (state = { isValidUri: false }, action) => {
+const UpdateUrlValidity = (state = { isValidUrl: false }, action) => {
   switch (action.type) {
-    case UPDATE_URI_VALIDITY:
+    case UPDATE_URL_VALIDITY:
       return {
-        isValidUri: action.isValidUri,
+        isValidUrl: action.isValidUrl,
       };
     default:
       return state;
   }
 };
 
-export default UpdateUriValidity;
+export default UpdateUrlValidity;
