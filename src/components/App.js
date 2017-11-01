@@ -4,6 +4,7 @@ import {
   Container,
   Nav,
   Navbar,
+  NavbarBrand,
   NavItem,
   NavLink,
   Row
@@ -11,12 +12,15 @@ import {
 
 import CurrentUrlForm from '../containers/CurrentUrlForm';
 import CurrentJaeUrlDisplay from '../containers/CurrentJaeUrlDisplay';
+import CurrentLoadingModal from '../containers/CurrentLoadingModal';
+import Information from '../components/Information';
 
 class App extends React.Component {
    render() {
       return (
         <div>
           <Navbar color="faded" light expand="md">
+            <NavbarBrand>Create a Jae URL</NavbarBrand>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="https://github.com/jaebradley/jaeurls">API</NavLink>
@@ -26,8 +30,7 @@ class App extends React.Component {
               </NavItem>
             </Nav>
           </Navbar>
-          <Container>
-            <h5>Input URL</h5>
+          <Container className={'create-url-container'}>
             <Row>
               <Col>
                 <CurrentUrlForm />
@@ -38,7 +41,13 @@ class App extends React.Component {
                 <CurrentJaeUrlDisplay />
               </Col>
             </Row>
+            <Row>
+              <Col className={'information-toggle'}>
+                <Information />
+              </Col>
+            </Row>
           </Container>
+          <CurrentLoadingModal />
         </div>
       );
    }

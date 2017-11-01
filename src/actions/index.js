@@ -4,6 +4,8 @@ import {
   UPDATE_URL_VALIDITY,
   FETCH_JAE_URL_FAILURE,
   FETCH_JAE_URL_SUCCESS,
+  FINISHED_FETCHING_JAE_URL,
+  STARTED_FETCHING_JAE_URL
 } from '../constants/ActionType';
 
 const ValidUrl = require('valid-url');
@@ -29,15 +31,25 @@ export const updateUrlValidity = url => (
   }
 );
 
+export const startedFetchingJaeUrl = () => (
+  { type: STARTED_FETCHING_JAE_URL }
+)
+
+export const finishedFetchingJaeUrl = () => (
+  { type: FINISHED_FETCHING_JAE_URL }
+)
+
 export const fetchJaeUrl = url => (
-  dispatch => (
+  dispatch => {
+    dispatch(startedFetchingJaeUrl())
     fetch('https://jaeurls.herokuapp.com/api/v1/', {
       method: 'POST',
       body: JSON.stringify({ url }),
     }).then(response => response.json())
       .then((data) => {
-        dispatch(updateJaeUrl(data));
-        dispatch({ type: FETCH_JAE_URL_SUCCESS });
+        dispatch(updateJaeUrl(data))
+        dispatch({ type: FETCH_JAE_URL_SUCCESS })
+        dispatch(finishedFetchingJaeUrl())
       }).catch(() => dispatch({ type: FETCH_JAE_URL_FAILURE }))
-  )
+  }
 );
