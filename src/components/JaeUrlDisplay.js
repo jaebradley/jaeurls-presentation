@@ -20,9 +20,7 @@ class JaeUrlDisplay extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setState({
-      jaeUrl: props.jaeUrl,
-    });
+    this.setState({ jaeUrl: props.jaeUrl });
   }
 
   getButtonText() {
@@ -30,10 +28,7 @@ class JaeUrlDisplay extends React.Component {
   }
 
   onCopy() {
-    this.setState({
-      copied: true
-    });
-
+    this.setState({ copied: true });
     this.showAlert();
   }
 
@@ -46,36 +41,43 @@ class JaeUrlDisplay extends React.Component {
 
   render() {
     if (!this.state.jaeUrl) {
-      const alertOptions = {
-      offset: 14,
-      position: 'top left',
-      theme: 'dark',
-      time: 5000,
-      transition: 'scale'
-    };
-
       return (
           <div>
             <h5>Created Jae URL</h5>
             <Row>
               <Col>
                 <Alert color={'info'}>
-                  <Button color={'link'} href={this.state.jaeUrl} target={'_blank'}>{this.state.jaeUrl}</Button>
+                  <Button
+                    color={'link'}
+                    href={this.state.jaeUrl}
+                    target={'_blank'}
+                  >{this.state.jaeUrl}</Button>
                   <CopyToClipboard
                     text={this.state.jaeUrl}
                     onCopy={this.onCopy.bind(this)}>
                       <Button className={'jae-url-copy-button'}>{this.getButtonText()}</Button>
                     </CopyToClipboard>
                 </Alert>
-                <AlertContainer ref={a => this.msg = a} {...alertOptions} />
+                <AlertContainer
+                  ref={a => this.msg = a}
+                  offset={14}
+                  position={'top left'}
+                  theme={'dark'}
+                  time={5000}
+                  transition={'scale'}
+                />
               </Col>
             </Row>
           </div>
-      )
+      );
     }
 
     return null;
   }
 }
+
+JaeUrlDisplay.propTypes = {
+  jaeUrl: PropTypes.string.isRequired
+};
 
 export default JaeUrlDisplay;

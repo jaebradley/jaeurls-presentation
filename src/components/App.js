@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  Container,
-  Row,
   Col,
-  Navbar,
+  Container,
   Nav,
+  Navbar,
   NavItem,
-  NavLink
+  NavLink,
+  Row
  } from 'reactstrap';
 
 import CurrentUriForm from '../containers/CurrentUriForm';

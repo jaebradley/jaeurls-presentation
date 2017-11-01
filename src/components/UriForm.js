@@ -26,11 +26,7 @@ class UriForm extends React.Component {
   }
 
   onUriChange(event) {
-    const {
-      onUriChange,
-    } = this.props;
-
-    onUriChange(event.target.value);
+    this.props.onUriChange(event.target.value);
   }
 
   getAlertColor() {
@@ -80,6 +76,13 @@ class UriForm extends React.Component {
       </Form>
     )
   }
+}
+
+UriForm.propTypes = {
+  isValidUri: PropTypes.boolean.isRequired,
+  inputUrlValue: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onUriChange: PropTypes.func.isRequired
 }
 
 export default UriForm;
