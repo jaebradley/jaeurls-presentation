@@ -1,4 +1,4 @@
 {
-  "presets": ["es2017", "react"],
+  "presets": ["es2017", "react", "flow"],
   "plugins": ["react-hot-loader/babel"]
 }
