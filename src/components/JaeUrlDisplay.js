@@ -1,5 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/* @flow */
+
+import * as React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {
   Alert,
@@ -9,8 +10,20 @@ import {
 } from 'reactstrap';
 import AlertContainer from 'react-alert';
 
-class JaeUrlDisplay extends React.Component {
-  constructor(props) {
+type JaeUrlDisplayPropsType = {
+  jaeUrl: string,
+  isFetching: boolean
+};
+
+type JaeUrlDisplayStateType = {
+  jaeUrl: string,
+  copied: boolean
+};
+
+class JaeUrlDisplay extends React.Component<JaeUrlDisplayPropsType, JaeUrlDisplayStateType> {
+  state: JaeUrlDisplayStateType;
+
+  constructor(props: JaeUrlDisplayPropsType) {
     super(props);
 
     this.state = {
@@ -19,11 +32,11 @@ class JaeUrlDisplay extends React.Component {
     };
   }
 
-  componentWillReceiveProps(props) {
+  componentWillReceiveProps(nextProps: JaeUrlDisplayPropsType) {
     const {
       jaeUrl,
       isFetching
-    } = props;
+    } = nextProps;
 
     this.setState({ jaeUrl });
 
@@ -32,7 +45,7 @@ class JaeUrlDisplay extends React.Component {
     }
   }
 
-  getButtonText() {
+  getButtonText(): string {
     return this.state.copied ? 'Copied' : 'Copy';
   }
 
@@ -42,13 +55,14 @@ class JaeUrlDisplay extends React.Component {
   }
 
   showAlert() {
+    // $FlowFixMe
     this.msg.show(`Copied ${this.state.jaeUrl} to clipboard`, {
       time: 2000,
       type: 'success',
     });
   }
 
-  render() {
+  render(): React.Node {
     if (this.state.jaeUrl.length > 0) {
       return (
           <div>
@@ -68,7 +82,8 @@ class JaeUrlDisplay extends React.Component {
                     </CopyToClipboard>
                 </Alert>
                 <AlertContainer
-                  ref={a => this.msg = a}
+                  // $FlowFixMe
+                  ref={a => this.msg = a} // eslint-disable-line
                   offset={14}
                   position={'top left'}
                   theme={'dark'}
@@ -84,10 +99,5 @@ class JaeUrlDisplay extends React.Component {
     return null;
   }
 }
-
-JaeUrlDisplay.propTypes = {
-  jaeUrl: PropTypes.string.isRequired,
-  isFetching: PropTypes.bool.isRequired,
-};
 
 export default JaeUrlDisplay;

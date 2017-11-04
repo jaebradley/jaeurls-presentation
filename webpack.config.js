@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const FlowtypePlugin = require('flowtype-loader/plugin');
 
 const config = {
   entry: [
@@ -32,7 +33,7 @@ const config = {
       {
          test: /\.jsx?$/,
          exclude: /node_modules/,
-         loaders: ['babel-loader'],
+         loaders: ['babel-loader', 'flowtype-loader'],
       },
       {
         test: /\.html$/,
@@ -47,7 +48,8 @@ const config = {
 
   plugins: [
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new FlowtypePlugin()
   ]
 }
 
